@@ -85,34 +85,35 @@ fun ExpandableCard(){
                     shape = RoundedCornerShape(20.dp),
                     onClick = {expandedstate = !expandedstate},
                 ) {
-                    Column() {
-                        Row (modifier = Modifier
-                            .padding(12.dp), verticalAlignment = Alignment.CenterVertically
-                        ){
-                            Text(text = "Superscript",
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold,
-                                modifier = Modifier
-                                    .weight(6f)
-                                    .alpha(1f)//Opacity of Text
-                                , maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                            IconButton(
-                                modifier = Modifier // Apply modifier to IconButton
-                                    .alpha(1f)
-                                    .weight(1f)
-                                    .rotate(if (expandedstate) 180f else 0f),
-                                onClick = { expandedstate = !expandedstate },//rotation of the arrow
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.ArrowDropDown,
-                                    contentDescription = "Drop down arrow",
+                    Surface(color = MaterialTheme.colorScheme.primary) {
+                        Column() {
+                            Row (modifier = Modifier
+                                .padding(12.dp), verticalAlignment = Alignment.CenterVertically
+                            ){
+                                Text(text = "Superscript",
+                                    fontSize = 16.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    modifier = Modifier
+                                        .weight(6f)
+                                        .alpha(1f)//Opacity of Text
+                                    , maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
                                 )
-                            }
+                                IconButton(
+                                    modifier = Modifier // Apply modifier to IconButton
+                                        .alpha(1f)
+                                        .weight(1f)
+                                        .rotate(if (expandedstate) 180f else 0f),
+                                    onClick = { expandedstate = !expandedstate },//rotation of the arrow
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.ArrowDropDown,
+                                        contentDescription = "Drop down arrow",
+                                    )
+                                }
 
-                        }
-                        if (expandedstate == true) {
+                            }
+                            if (expandedstate == true) {
 
                                 Text(
                                     text = buildAnnotatedString { withStyle(SpanStyle(fontSize = 15.sp,
@@ -120,16 +121,17 @@ fun ExpandableCard(){
                                     {
                                         append("Hello")
                                     }
-                                    withStyle(
-                                        SpanStyle(fontSize = 10.sp,
-                                        fontWeight = FontWeight.Bold,
-                                        baselineShift = BaselineShift(0.5f)
-                                        )){
-                                        append("Everyone")
-                                    }
+                                        withStyle(
+                                            SpanStyle(fontSize = 10.sp,
+                                                fontWeight = FontWeight.Bold,
+                                                baselineShift = BaselineShift(0.5f)
+                                            )){
+                                            append("Everyone")
+                                        }
                                     },
                                     modifier = Modifier.padding(10.dp))
 
+                            }
                         }
                     }
                 }
@@ -163,51 +165,53 @@ fun ExpandableCard(){
                     shape = RoundedCornerShape(20.dp),
                     onClick = {expState = !expState},
                 ) {
-                    Column() {
-                        Row (modifier = Modifier
-                            .padding(12.dp), verticalAlignment = Alignment.CenterVertically
-                        ){
-                            Text(text = "Subscript",
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold,
-                                modifier = Modifier
-                                    .weight(6f)
-                                    .alpha(1f)//Opacity of Text
-                                , maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                            IconButton(
-                                modifier = Modifier // Apply modifier to IconButton
-                                    .alpha(1f)
-                                    .weight(1f)
-                                    .rotate(if (expState) 180f else 0f),
-                                onClick = { expState = !expState },//openeing and closing of DropDownMenu
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.ArrowDropDown,
-                                    contentDescription = "Drop down arrow",
+                    Surface(color = MaterialTheme.colorScheme.primary) {
+                        Column() {
+                            Row (modifier = Modifier
+                                .padding(12.dp), verticalAlignment = Alignment.CenterVertically
+                            ){
+                                Text(text = "Subscript",
+                                    fontSize = 16.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    modifier = Modifier
+                                        .weight(6f)
+                                        .alpha(1f)//Opacity of Text
+                                    , maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
                                 )
-                            }
-
-                        }
-                        if (expState == true) {
-
-                            Text(
-                                text = buildAnnotatedString { withStyle(SpanStyle(fontSize = 15.sp,
-                                    fontWeight = FontWeight.Bold))
-                                {
-                                    append("Hello")
+                                IconButton(
+                                    modifier = Modifier // Apply modifier to IconButton
+                                        .alpha(1f)
+                                        .weight(1f)
+                                        .rotate(if (expState) 180f else 0f),
+                                    onClick = { expState = !expState },//openeing and closing of DropDownMenu
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.ArrowDropDown,
+                                        contentDescription = "Drop down arrow",
+                                    )
                                 }
-                                    withStyle(
-                                        SpanStyle(fontSize = 10.sp,
-                                            fontWeight = FontWeight.Bold,
-                                            baselineShift = BaselineShift(-0.5f)
-                                        )){
-                                        append("Everyone")
-                                    }
-                                },
-                                modifier = Modifier.padding(10.dp))
 
+                            }
+                            if (expState == true) {
+
+                                Text(
+                                    text = buildAnnotatedString { withStyle(SpanStyle(fontSize = 15.sp,
+                                        fontWeight = FontWeight.Bold))
+                                    {
+                                        append("Hello")
+                                    }
+                                        withStyle(
+                                            SpanStyle(fontSize = 10.sp,
+                                                fontWeight = FontWeight.Bold,
+                                                baselineShift = BaselineShift(-0.5f)
+                                            )){
+                                            append("Everyone")
+                                        }
+                                    },
+                                    modifier = Modifier.padding(10.dp))
+
+                            }
                         }
                     }
                 }
